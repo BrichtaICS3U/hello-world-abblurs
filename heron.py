@@ -27,11 +27,11 @@ def heron(x, accuracy):
 
   print(round(G, 3))
 
-def newton(x, accuracy):
-  G = int(input("Enter a guess for the square root of x: "))
+def newton(x, root, accuracy):
+  G = int(input("Enter a guess for the ____ root of x: "))
   
-  while absolute((G**2)-x) >= accuracy:
-      G = G - (G**2-x) / (2*G**1)
+  while absolute((G**root)-x) >= accuracy:
+      G = G - (G**root-x) / (root*G**(root-1))
 
   print(round(G,3))
   
