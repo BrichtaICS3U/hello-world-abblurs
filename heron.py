@@ -8,8 +8,30 @@
 #https://en.wikipedia.org/wiki/Methods_of_computing_square_roots#Babylonian_method
 #
 
-def heron(x, accuracy=0.001):
+def absolute(x):
+    """Determine the absolute value of a number, x.
+    """
+    if x >= 0:
+        return x
+    else:
+        return -x
+
+def heron(x, accuracy):
   """Compute the square root of the number x using Heron's method. The accuracy is defaulted to three decimal places, but you
   can use a larger or smaller number if you wish. The smaller the number, the more time the calculation will take."""
   
-  return 1
+  G = int(input("Enter a guess for the square root of x: "))
+
+  while absolute((G**2)-x) >= accuracy:
+      G = (G + (x/G)) / 2
+
+  print(round(G, 3))
+
+def newton(x, accuracy):
+  G = int(input("Enter a guess for the square root of x: "))
+  
+  while absolute((G**2)-x) >= accuracy:
+      G = G - (G**2-x) / (2*G**1)
+
+  print(round(G,3))
+  
